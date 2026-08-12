@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      font-family: system-ui, -apple-system, sans-serif;
+      background: #ffffff;
+      color: #111111;
+      margin: 0;
+      padding: 6px 12px;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 6px;
+      user-select: none;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .tool-btn {
+      width: 36px;
+      height: 36px;
+      background: transparent;
+      color: #555555;
+      border: 2px solid transparent;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      padding: 0;
+    }
+
+    .tool-btn:hover {
+      color: #000000;
+      background: #f3f4f6;
+    }
+
+    /* Clean bounding box around selected tool */
+    .tool-btn.active {
+      border: 2px solid #000000;
+      color: #000000;
+      background: transparent;
+    }
+
+    .tool-btn.danger:hover {
+      color: #dc2626;
+      background: #fee2e2;
+    }
+
+    .separator {
+      width: 1px;
+      height: 24px;
+      background: #e5e7eb;
+      margin: 0 2px;
+    }
+
+    .control-group {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 4px;
+    }
+
+    svg {
+      width: 20px;
+      height: 20px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .color-wrapper {
+      position: relative;
+      width: 32px;
+      height: 32px;
+      border-radius: 6px;
+      overflow: hidden;
+      border: 1px solid #d1d5db;
+      cursor: pointer;
+    }
+
+    input[type="color"] {
+      position: absolute;
+      top: -10px;
+      left: -10px;
+      width: 52px;
+      height: 52px;
+      border: none;
+      cursor: pointer;
+      background: none;
+    }
+
+    input[type="range"] {
+      width: 48px;
+      accent-color: #000000;
+      cursor: pointer;
+    }
+  </style>
+  <title>Toolbox</title>
+</head>
+<body>
+
+  <!-- Laser Pointer -->
+  <button id="btn-laser" class="tool-btn active" title="Laser Pointer">
+    <svg viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="4" fill="currentColor" stroke="none" />
+      <circle cx="12" cy="12" r="9" stroke-dasharray="2 2" />
+    </svg>
+  </button>
+
+  <div class="separator"></div>
+
+  <!-- Freehand Pen -->
+  <button id="btn-pen" class="tool-btn" title="Pen">
+    <svg viewBox="0 0 24 24">
+      <path d="M12 19l7-7 3 3-7 7-3-3z" />
+      <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z" />
+      <path d="M2 2l7.5 7.5" />
+    </svg>
+  </button>
+
+  <!-- Straight Line -->
+  <button id="btn-line" class="tool-btn" title="Line">
+    <svg viewBox="0 0 24 24">
+      <line x1="5" y1="19" x2="19" y2="5" />
+    </svg>
+  </button>
+
+  <!-- Arrow -->
+  <button id="btn-arrow" class="tool-btn" title="Arrow">
+    <svg viewBox="0 0 24 24">
+      <line x1="5" y1="19" x2="19" y2="5" />
+      <polyline points="10 5 19 5 19 14" />
+    </svg>
+  </button>
+
+  <!-- Rectangle -->
+  <button id="btn-rect" class="tool-btn" title="Rectangle">
+    <svg viewBox="0 0 24 24">
+      <rect x="4" y="4" width="16" height="16" rx="2" />
+    </svg>
+  </button>
+
+  <!-- Circle -->
+  <button id="btn-circle" class="tool-btn" title="Circle">
+    <svg viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="9" />
+    </svg>
+  </button>
+
+  <div class="separator"></div>
+
+  <!-- Eraser / Clear All -->
+  <button id="btn-eraser" class="tool-btn danger" title="Clear Canvas">
+    <svg viewBox="0 0 24 24">
+      <path d="M20 20H7L3 16C2 15 2 13 3 12L13 2C14 1 16 1 17 2L21 6C22 7 22 9 21 10L12 19" />
+    </svg>
+  </button>
+
+  <button id="btn-clear" class="tool-btn danger" title="Clear Canvas">
+    <svg viewBox="0 0 24 24">
+    <line x1="18" y1="6" x2="6" y2="18" />
+    <line x1="6" y1="6" x2="18" y2="18" />
+  </svg>
+  </button>
+
+  <div class="separator"></div>
+
+  <!-- Size Picker -->
+  <div class="control-group" title="Stroke Size">
+    <svg viewBox="0 0 24 24" style="width:14px; height:14px; color: #666;">
+      <circle cx="12" cy="12" r="8" fill="currentColor" />
+    </svg>
+    <input type="range" id="size-slider" min="2" max="20" value="5">
+  </div>
+
+  <!-- Color Picker -->
+  <div class="color-wrapper" title="Color Picker">
+    <input type="color" id="color-picker" value="#ff0000">
+  </div>
+
+
+  <script src="../scripts/controls.js"></script>
+</body>
+</html>
