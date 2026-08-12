@@ -1,0 +1,17 @@
+{
+  "name": "Tab Whiteboard",
+  "description": "Annotate your chrome tabs",
+  "version": "1.0",
+  "manifest_version": 3,
+  "icons": {
+    "48": "images/icon-48.png",
+    "128": "images/icon-128.png"
+  },
+  "permissions": ["activeTab", "scripting"],
+  "background": {
+    "service_worker": "scripts/background.js"
+  },
+  "action": {
+    "default_title": "Tab Whiteboard"
+  }
+}
