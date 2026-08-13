@@ -172,6 +172,7 @@
             targetCtx.ellipse(cx, cy, Math.abs(rx), Math.abs(ry), 0, 0, 2 * Math.PI);
             targetCtx.stroke();
         } else if (shape.type === 'arrow') {
+            // START AI USAGE
             const headLength = Math.max(12, shape.size * 2.5);
             const angle = Math.atan2(shape.end.y - shape.start.y, shape.end.x - shape.start.x);
 
@@ -179,7 +180,6 @@
             targetCtx.moveTo(shape.start.x, shape.start.y);
             targetCtx.lineTo(shape.end.x, shape.end.y);
             targetCtx.stroke();
-
             targetCtx.beginPath();
             targetCtx.moveTo(shape.end.x, shape.end.y);
             targetCtx.lineTo(
@@ -192,6 +192,7 @@
             );
             targetCtx.closePath();
             targetCtx.fill();
+            // END AI USAGE
         }
     }
 
