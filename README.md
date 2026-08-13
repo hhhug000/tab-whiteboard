@@ -22,3 +22,7 @@ Then select the tool you want and you can draw on the tab!
 - Enable the Developer mode toggle switch in the top-right corner of the Extensions page
 - Click the Load unpacked button in the top-left menu and select the extracted folder containing manifest.json
 - Optionally, click the puzzle piece icon in Chrome's toolbar and pin the extension for easy access
+
+### AI Usage
+All AI usage is marked with comments, some ai was also used for discussing ideas on how to implement features and solve bugs, but coded myself.
+This it hard to give the AI usage a number, but I would estimate 10-20%
